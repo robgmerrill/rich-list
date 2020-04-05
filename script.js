@@ -44,6 +44,13 @@ function sortByRichest() {
   updateDOM();
 }
 
+function showMillionairsNow() {
+  data = data.filter(function (number) {
+    return number.money > 1000000;
+  });
+  updateDOM();
+}
+
 // Add new obj to data arr
 function addData(obj) {
   data.push(obj);
@@ -86,3 +93,5 @@ addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
 
 sortBtn.addEventListener('click', sortByRichest);
+
+showMillionairs.addEventListener('click', showMillionairsNow);
