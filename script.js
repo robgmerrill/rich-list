@@ -28,12 +28,19 @@ async function getRandomUser() {
 // Double everyone's money
 function doubleMoney() {
   data = data.map((user) => {
+    console.log('THIS: ', user);
     return {
       ...user,
       money: user.money * 2,
     };
   });
 
+  updateDOM();
+}
+
+// Sorts users by riches
+function sortByRichest() {
+  data = data.sort((a, b) => b.money - a.money);
   updateDOM();
 }
 
@@ -77,3 +84,5 @@ function formatMoney(number) {
 addUserBtn.addEventListener('click', getRandomUser);
 
 doubleBtn.addEventListener('click', doubleMoney);
+
+sortBtn.addEventListener('click', sortByRichest);
